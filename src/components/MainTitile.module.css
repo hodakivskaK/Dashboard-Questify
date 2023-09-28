@@ -1,0 +1,10 @@
+.main{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    background: radial-gradient(at center, red, pink );
+    margin-top: 10px;
+    padding-top: 10px;
+    display: flex;
+    height: 200px;
+    justify-content: space-around;
+}
