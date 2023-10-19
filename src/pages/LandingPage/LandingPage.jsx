@@ -1,10 +1,19 @@
 
+import { useNavigate } from 'react-router-dom'; // router dom
 
 import s from './LandingPage.module.css'
 
 
 export default function LandingPage(){
-   
+    const navigate = useNavigate();
+
+
+    const handleSubmit = e => {
+        e.preventDefault();
+
+     console.log(true)
+     navigate('/dashboard');
+      };
     
   return (
 <div className={s.landing__section}>
@@ -16,14 +25,16 @@ quests and exciting challenges.</p>
 
 
 <div className={s.landing__formBox}>
-    <form className={s.landing__form}> 
+    <form className={s.landing__form} onSubmit={handleSubmit}> 
         <label className={s.landing__label}>
         Choose your name to sign up or log in
             <input type="text" className={s.landing__input} />
         </label>
+
+        <button className={s.landing__Btn} type="submit" >go!</button>
     </form>
 
-    <button className={s.landing__Btn}>go!</button>
+ 
 </div>
 
 

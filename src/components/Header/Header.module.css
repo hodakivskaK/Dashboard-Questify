@@ -1,10 +1,23 @@
 .main{
-    font-family: 'Times New Roman', Times, serif;
-    font-weight: 900;
-    background: radial-gradient(at center, red, pink );
-    margin-top: 10px;
-    padding-top: 10px;
+   
+    background: #282828;
+   
+color: aliceblue;
+}
+
+.header__container{
     display: flex;
-    height: 200px;
     justify-content: space-around;
+    align-items: center;
+}
+
+.header__logo{
+    font-family: "HelveticaNeueCyr", sans-serif;
+font-size: 21px;
+font-weight: 700;
+line-height: 21px;
+letter-spacing: 0.02em;
+
+
+    color: #00D7FF;
 }
