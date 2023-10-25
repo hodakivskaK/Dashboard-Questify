@@ -1,0 +1,8 @@
+[
+    { "value": "STUFF", "label": "STUFF" },
+    { "value": "FAMILY", "label": "FAMILY" },
+    { "value": "HEALTH", "label": "HEALTH" },
+    { "value": "LEARNING", "label": "LEARNING" },
+    { "value": "LEISURE", "label": "LEISURE" },
+    { "value": "WORK", "label": "WORK" }
+  ]

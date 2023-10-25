@@ -1,0 +1,7 @@
+.Dashboard__taskSection{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+
+    margin: 61px 21px;
+}

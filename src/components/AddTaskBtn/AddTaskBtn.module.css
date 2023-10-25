@@ -1,0 +1,24 @@
+
+.addTaskBtn{
+    position: fixed;
+    bottom: 40px;
+    right: 28px;
+    border: none;
+}
+
+.addTaskBtn__icon{
+   
+    border-radius:16px;
+    width: 52px;
+    height: 52px;
+   color: #FF851C;
+   box-shadow: 0px 0px 16px 4px rgba(255,133,28, 0.7);
+    transition: 0.6s;
+}
+
+
+
+.addTaskBtn__icon:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 18px 6px rgba(255,133,28, 0.7);
+}
