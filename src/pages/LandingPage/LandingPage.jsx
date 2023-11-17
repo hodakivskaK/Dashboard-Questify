@@ -1,5 +1,5 @@
 
-import { useNavigate } from 'react-router-dom'; // router dom
+import { useNavigate } from 'react-router-dom'; 
 
 import s from './LandingPage.module.css'
 
@@ -10,9 +10,7 @@ export default function LandingPage(){
 
     const handleSubmit = e => {
         e.preventDefault();
-
-     console.log(true)
-     navigate('/dashboard');
+     navigate('/registration');
       };
     
   return (
