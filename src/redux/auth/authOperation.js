@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-axios.defaults.baseURL = 'https://';
+axios.defaults.baseURL = 'https://questify-backend.goit.global/';
 
 const setAuthHeader = token =>
   (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
@@ -66,7 +66,7 @@ export const refreshUser = createAsyncThunk(
 
     try {
       setAuthHeader(persistedToken);
-      const response = await axios.get('/auth/refresh');
+      const response = await axios.post('/auth/refresh');
 
       return response.data;
     } catch (e) {

@@ -1,15 +1,18 @@
 import { Formik } from 'formik';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { login } from "../../redux/auth/authOperation";
 
 import s from './LoginFormPage.module.css'
 
 export default function LoginFormPage(){
+  const dispatch = useDispatch();
 
 
 
  return <div className={s.loginForm__section}>
     <h1 className={s.loginForm__title}>Hello friend, go to your profile </h1>
-    <h3 className={s.loginForm__subTitle}>your tasks are waiting for you </h3>
+    <h4 className={s.loginForm__subTitle}>your tasks are waiting for you </h4>
     <Formik
       initialValues={{ email: '', password: '' }}
       validate={values => {
@@ -21,13 +24,25 @@ export default function LoginFormPage(){
         ) {
           errors.email = 'Invalid email address';
         }
+        if(!values.password) {
+          errors.password = 'Required';
+        } else if ( values.password.length <8 ) {
+          errors.password = 'Your password should be at least 8 characters long';
+        }
+
         return errors;
       }}
+
       onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+        const form = values;
+        dispatch(
+          login({
+              email: form.email,
+              password:  form.password,
+            })
+      );
+        setSubmitting(false);
+
       }}
     >
       {({
