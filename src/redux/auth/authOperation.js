@@ -5,19 +5,21 @@ axios.defaults.baseURL = 'https://questify-backend.goit.global/';
 
 const setAuthHeader = token =>
   (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
-const cleanAuthHeader = () =>
+const clearAuthHeader = () =>
   (axios.defaults.headers.common.Authorization = '');
+
 
 
    // Register 
 export const register = createAsyncThunk(
   'auth/register',
   async (user, { rejectWithValue }) => {
-    console.log(user)
+
     try {
       const response = await axios.post('auth/register', user);
-      setAuthHeader(response.data.token);
+      setAuthHeader(response.data.accessToken);
        console.log(response)
+
       return response.data;
     } catch (e) {
       return rejectWithValue(e.message);
@@ -29,44 +31,10 @@ export const register = createAsyncThunk(
 export const login = createAsyncThunk(
   'auth/login',
   async (user, { rejectWithValue }) => {
+
     try {
       const response = await axios.post('/auth/login', user);
-      setAuthHeader(response.data.token);
-      return response.data;
-    } catch (e) {
-      return rejectWithValue(e.message);
-    }
-  }
-);
-
-
-//  logOut 
-export const logOut = createAsyncThunk(
-  'auth/logout',
-  async (user, { rejectWithValue }) => {
-    try {
-      await axios.post('/auth/logout', user);
-      cleanAuthHeader();
-    } catch (e) {
-      return rejectWithValue(e.message);
-    }
-  }
-);
-
-// refresh
-export const refreshUser = createAsyncThunk(
-  'auth/refresh',
-  async (_, { getState, rejectWithValue }) => {
-    const state = getState();
-    const persistedToken = state.auth.token;
-
-      if (persistedToken === null) {
-      return rejectWithValue('Unable to fetch user');
-    }
-
-    try {
-      setAuthHeader(persistedToken);
-      const response = await axios.post('/auth/refresh');
+      setAuthHeader(response.data.accessToken);
 
       return response.data;
     } catch (e) {
@@ -74,3 +42,50 @@ export const refreshUser = createAsyncThunk(
     }
   }
 );
+
+// logOut 
+export const logOut = createAsyncThunk('/auth/logout', async (_, { rejectWithValue, getState }) => {
+  const state = getState();
+  const persistedToken = state.auth.accessToken;
+
+  if (persistedToken === null) {
+    return rejectWithValue('Unable to fetch user');
+  }
+
+  if (!persistedToken) {
+    return rejectWithValue('Unable to fetch user');
+  }
+  try {
+    setAuthHeader(persistedToken);
+    await axios.post('/auth/logout');
+    clearAuthHeader();
+  } catch (e) {
+    return rejectWithValue(e.response.data.message);
+  }
+});
+
+
+
+
+//  refresh 
+
+
+export const refreshUser = createAsyncThunk('/auth/refresh', async (_, { rejectWithValue, getState }) => {
+  const state = getState();
+  const persistedToken = state.auth.refreshToken;
+  const requestData = {
+          sid: state.auth.sid,
+        };
+
+  if (persistedToken === null) {
+    return rejectWithValue('Unable to fetch user');
+  }
+
+  try {
+    setAuthHeader(persistedToken);
+    const response = await axios.post('/auth/refresh', requestData);
+    return response.data;
+  } catch (e) {
+    return rejectWithValue(e.response.data.message);
+  }
+});

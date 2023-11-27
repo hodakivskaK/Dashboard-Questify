@@ -1,17 +1,25 @@
-.main{
-   
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   height: 60px;
+
+
     background: #282828;
-   
+  
 color: aliceblue;
 }
 
 .header__container{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
+    min-width: 1280px;
+    
 }
 
 .header__logo{
+    margin: 0;
     font-family: "HelveticaNeueCyr", sans-serif;
 font-size: 21px;
 font-weight: 700;
@@ -20,4 +28,25 @@ letter-spacing: 0.02em;
 
 
     color: #00D7FF;
+}
+
+.header__btnLogOutBox{
+    width: 32px;
+    height: 32px;
+}
+
+.header__btnLogOut{
+    color: #3E4E6C;
+    width: 30px;
+    height: 30px;
+    transition: 0.3s;
+}
+
+
+.header__btnLogOut:hover,
+.header__btnLogOut:focus{
+    cursor: pointer;
+    color: #00D7FF;
+    width: 32px;
+    height: 32px;
 }

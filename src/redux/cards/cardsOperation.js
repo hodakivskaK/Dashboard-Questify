@@ -1,14 +1,19 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://questify-backend.goit.global/';
+
+const setAuthHeader = token =>
+  (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
+
+
 
 // GET Card
 export const fetchCard = createAsyncThunk(
-  'card/fetch',
+  'cards/fetch',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/card");
+      console.log(response.data)
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -36,6 +41,7 @@ export const addCard = createAsyncThunk(
   'card/addCard',
   async (card, thunkAPI) => {
     try {
+      console.log(card)
       const response = await axios.post("/card", card );
       return response.data;
      

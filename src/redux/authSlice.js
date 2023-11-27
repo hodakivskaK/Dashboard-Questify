@@ -19,8 +19,8 @@ const authSlice = createSlice({
             .addCase(register.fulfilled, (state, action) => {
                 state.user.email = action.payload.email;
                 state.sid = action.payload.sid;
-                state.refreshToken = action.payload.refreshToken;
                 state.accessToken = action.payload.accessToken;
+                state.refreshToken = action.payload.refreshToken;
                 state.isLogin = true;
             })
         
@@ -28,8 +28,8 @@ const authSlice = createSlice({
             .addCase(login.fulfilled, (state, action) => {
                 state.user.email = action.payload.userData.email;
                 state.sid = action.payload.sid;
-                state.refreshToken = action.payload.refreshToken;
                 state.accessToken = action.payload.accessToken;
+                state.refreshToken = action.payload.refreshToken;
                 state.isLogin = true;
             })
         
@@ -37,20 +37,21 @@ const authSlice = createSlice({
             .addCase(logOut.fulfilled, (state) => {
                 state.user = { email: null };
                 state.sid = null;
-                state.refreshToken = null;
                 state.accessToken = null;
+                state.refreshToken = null;
                 state.isLogin = false;
             })
         
             // RefreshUser
+         
             .addCase(refreshUser.pending, (state) => {
                 state.isRefreshing = true;
             })
             .addCase(refreshUser.fulfilled, (state, action) => {
                 console.log(action.payload)
                 state.sid = action.payload.newSid;
-                state.refreshToken = action.payload.newRefreshToken;
                 state.accessToken = action.payload.newRefreshToken;
+                state.refreshToken = action.payload.newRefreshToken;
                 state.isLogin = true;
                 state.isRefreshing = false;
             })
