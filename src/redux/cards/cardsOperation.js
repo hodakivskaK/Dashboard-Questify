@@ -2,11 +2,6 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
 
 
-const setAuthHeader = token =>
-  (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
-
-
-
 // GET Card
 export const fetchCard = createAsyncThunk(
   'cards/fetch',

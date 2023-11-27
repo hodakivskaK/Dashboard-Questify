@@ -1,11 +1,11 @@
 import { Route, Routes  } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import {useEffect, lazy  } from 'react'
-import { refreshUser } from './redux/auth/authOperation'
+// import { useDispatch } from "react-redux";
+import { lazy  } from 'react'
+// import { refreshUser } from './redux/auth/authOperation'
 
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
-import { useAuth } from './hook/useAuth';
+// import { useAuth } from './hook/useAuth';
 
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 
@@ -13,7 +13,7 @@ const LandingPage = lazy(() => import('./pages/LandingPage/LandingPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const RegisterFormPage = lazy(() => import('./pages/RegisterFormPage/RegisterFormPage'));
 const LoginFormPage = lazy(() => import('./pages/LoginFormPage/LoginFormPage'));
-const Loader = lazy(() => import('./components/Loader/Loader'));
+// const Loader = lazy(() => import('./components/Loader/Loader'));
 
 
 
@@ -26,10 +26,6 @@ export const App = () => {
 //     dispatch(refreshUser())
   
 // }, [dispatch])
-
-const loadDataOnlyOnce = () => {
-  console.log("loadDataOnlyOnce");
-};
 
 
   return (false ? (
