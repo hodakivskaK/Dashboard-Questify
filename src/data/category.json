@@ -1,8 +1,0 @@
-[
-    { "value": "Stuff", "label": "Stuff", "name": "category" },
-    { "value": "Family", "label": "Family", "name": "category" },
-    { "value": "Health", "label": "Health", "name": "category" },
-    { "value": "Learning", "label": "Learning", "name": "category" },
-    { "value": "Leisure", "label": "Leisure", "name": "category" },
-    { "value": "Work", "label": "Work", "name": "category" }
-  ]

@@ -1,0 +1,34 @@
+{
+  "files": {
+    "main.css": "/Dashboard-Questify/static/css/main.b9724f7a.css",
+    "main.js": "/Dashboard-Questify/static/js/main.00119d16.js",
+    "static/css/698.4f169c87.chunk.css": "/Dashboard-Questify/static/css/698.4f169c87.chunk.css",
+    "static/js/698.9596e6e0.chunk.js": "/Dashboard-Questify/static/js/698.9596e6e0.chunk.js",
+    "static/css/802.99271a9b.chunk.css": "/Dashboard-Questify/static/css/802.99271a9b.chunk.css",
+    "static/js/802.9ef13e18.chunk.js": "/Dashboard-Questify/static/js/802.9ef13e18.chunk.js",
+    "static/css/321.d58a9373.chunk.css": "/Dashboard-Questify/static/css/321.d58a9373.chunk.css",
+    "static/js/321.23f45818.chunk.js": "/Dashboard-Questify/static/js/321.23f45818.chunk.js",
+    "static/css/804.64916d2b.chunk.css": "/Dashboard-Questify/static/css/804.64916d2b.chunk.css",
+    "static/js/804.da680591.chunk.js": "/Dashboard-Questify/static/js/804.da680591.chunk.js",
+    "static/js/705.12e837ae.chunk.js": "/Dashboard-Questify/static/js/705.12e837ae.chunk.js",
+    "static/js/377.932e97de.chunk.js": "/Dashboard-Questify/static/js/377.932e97de.chunk.js",
+    "index.html": "/Dashboard-Questify/index.html",
+    "static/media/calendar.svg": "/Dashboard-Questify/static/media/calendar.521a4c009ea4aff094ee.svg",
+    "main.b9724f7a.css.map": "/Dashboard-Questify/static/css/main.b9724f7a.css.map",
+    "main.00119d16.js.map": "/Dashboard-Questify/static/js/main.00119d16.js.map",
+    "698.4f169c87.chunk.css.map": "/Dashboard-Questify/static/css/698.4f169c87.chunk.css.map",
+    "698.9596e6e0.chunk.js.map": "/Dashboard-Questify/static/js/698.9596e6e0.chunk.js.map",
+    "802.99271a9b.chunk.css.map": "/Dashboard-Questify/static/css/802.99271a9b.chunk.css.map",
+    "802.9ef13e18.chunk.js.map": "/Dashboard-Questify/static/js/802.9ef13e18.chunk.js.map",
+    "321.d58a9373.chunk.css.map": "/Dashboard-Questify/static/css/321.d58a9373.chunk.css.map",
+    "321.23f45818.chunk.js.map": "/Dashboard-Questify/static/js/321.23f45818.chunk.js.map",
+    "804.64916d2b.chunk.css.map": "/Dashboard-Questify/static/css/804.64916d2b.chunk.css.map",
+    "804.da680591.chunk.js.map": "/Dashboard-Questify/static/js/804.da680591.chunk.js.map",
+    "705.12e837ae.chunk.js.map": "/Dashboard-Questify/static/js/705.12e837ae.chunk.js.map",
+    "377.932e97de.chunk.js.map": "/Dashboard-Questify/static/js/377.932e97de.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b9724f7a.css",
+    "static/js/main.00119d16.js"
+  ]
+}
