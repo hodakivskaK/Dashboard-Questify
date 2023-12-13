@@ -1,14 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from "axios";
 
-
 // GET Card
 export const fetchCard = createAsyncThunk(
   'cards/fetch',
   async (_, thunkAPI) => {
     try {
       const response = await axios.get("/card");
-      console.log(response.data)
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -63,12 +61,12 @@ export const editCard = createAsyncThunk(
   );
 
 
-  // CONFIRM PATCH Card
-export const confirmEditCard = createAsyncThunk(
-    'card/confirmEditCard',
-    async (card, thunkAPI) => {
+  // PATCH COMPLETE  Card
+export const confirmCompleteCard = createAsyncThunk(
+    'card/confirmCompleteCard',
+    async (id, thunkAPI) => {
       try {
-        const response = await axios.patch("/card/complete", card );
+        const response = await axios.patch(`/card/complete/${id}` );
         return response.data;
        
       } catch (error) {

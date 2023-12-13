@@ -1,0 +1,55 @@
+.taskList{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    width: 1200px;
+    margin: 61px auto;
+    justify-content: space-between;
+}
+
+.taskList__emptyBox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.taskList__emptyTitle{
+    margin-top: 20vh;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color: #00D7FF;
+    width: 300px;
+}
+
+.taskList__imageBox{
+    margin-top: 80px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.taskList__imageTarget{
+    animation: 2s linear 0s infinite alternate sun-rise;
+
+}
+
+.taskList__imageArrow{
+    position: absolute;
+    top: -3px;
+    right: -65px;
+}
+
+
+@keyframes sun-rise {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(1.2);
+    }
+  }
+

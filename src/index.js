@@ -12,15 +12,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-         <BrowserRouter basename="/Dashboard-Questify">
-   
+          <BrowserRouter basename="/Dashboard-Questify">
                  <App />
-   
-    </BrowserRouter>
-
+          </BrowserRouter>
          </PersistGate>
          </Provider>
 
-     
   </React.StrictMode>
 );

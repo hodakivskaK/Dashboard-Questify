@@ -1,16 +1,15 @@
 .landing__section{
  margin-top: 204px;
- margin-left: 246px;
- 
+ margin-left: 229px;
 }
 
 .landing__title{
+    margin-bottom: 80px;
     font-size: 24px;
     font-weight: 700;
     line-height: 24px;
     letter-spacing: 0.02em;
     text-align: left;
-    
     color: #00D7FF;
 }
 
@@ -21,6 +20,7 @@ line-height: 45px;
 letter-spacing: 0.02em;
 text-align: left;
 width: 570px;
+margin-bottom: 35px;
 }
 
 
@@ -61,6 +61,7 @@ color: #B9C3C8;
 .landing__Btn{
     width: 52px;
 height: 52px;
+margin-left: 15px;
 background-color: #FF851C;
 border: none;
 

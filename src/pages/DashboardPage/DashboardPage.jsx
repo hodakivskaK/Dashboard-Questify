@@ -1,41 +1,44 @@
 
 import { useEffect, useState } from "react";
-import { useDispatch } from 'react-redux'
-
+import { useDispatch, useSelector  } from 'react-redux'
+import { createPortal } from 'react-dom';
 
 import { Header } from "components/Header/Header";
-import { Task } from "components/Task/TaskForm";
 import { AddTaskBtn } from "components/AddTaskBtn/AddTaskBtn";
-import { addCard } from "../../redux/cards/cardsOperation";
+import { TaskList } from "components/TaskList/TaskList";
+import { ModalContent } from "components/ModalWindowFormTask/ModalWindowFormTask";
+import Loader from "components/Loader/Loader";
 
-import { fetchCard } from '../../redux/cards/cardsOperation'
-
-// import { getCards } from 'redux/cards/cardsSelector'
-
-
-import s from './DashboardPage.module.css'
-import { nanoid } from "@reduxjs/toolkit";
+import { fetchCard } from 'redux/cards/cardsOperation'
+import { getIsLoading } from "redux/cards/cardsSelector";
+import { addCard } from "redux/cards/cardsOperation";
 
 
 // PAGE DashboardPage
 export default function DashboardPage(){
-  const [tasks, setTasks] = useState([]);
-
-  // const cards = useSelector(getCards);
+  const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
+  const isLoading = useSelector(getIsLoading);
 
-    useEffect(() => {
+  useEffect(() => {
     dispatch(fetchCard())
-
       }, [dispatch])
 
 
-  const addTask = () => {
-   setTasks([...tasks, <Task/>])
-  };
+      const openModal = () => {
+        setShowModal(true)
+        document.body.style.overflow = 'hidden'; 
+      
+      }
+
+      const closeModal = () => {
+        setShowModal(false)
+        document.body.style.overflow = '';
+      }
 
 
+           // ADD NEW TASK
    const sendTask = (difficulty, title, date, category, time) => {
     dispatch(
       addCard({
@@ -49,19 +52,19 @@ export default function DashboardPage(){
     ))
    };
 
+
     return (
-
-  <div>
+      <div >
     <Header/>
-    <div className={s.Dashboard__taskSection} >
+      {isLoading?<Loader/>: <TaskList /> }
 
+      <AddTaskBtn onClick={openModal}/>
 
- {tasks.map(task => <Task key={nanoid()} sendTask={sendTask} task={task}/>)}
-    </div>
-   
-
-      <AddTaskBtn addTask={addTask}/>
+      {showModal && createPortal(
+        <ModalContent onClose={closeModal} sendTask={sendTask}/>,
+        document.body
+      )}
   </div>
-      );
       
-    }
+    ) ;
+}

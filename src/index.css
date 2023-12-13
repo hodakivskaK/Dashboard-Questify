@@ -9,8 +9,17 @@ body {
   background-color: #F2F3F7;
 }
 
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'HelveticaNeueCyr', 'Courier New', monospace;
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+margin: 0;
+padding: 0;
+}
+
+

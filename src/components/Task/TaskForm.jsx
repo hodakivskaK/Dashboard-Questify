@@ -1,119 +1,118 @@
-import Select from 'react-select';
-import { AiFillStar } from 'react-icons/ai';
-import { CgClose } from 'react-icons/cg';
-// import { useDispatch } from 'react-redux'
+import { createPortal } from 'react-dom';
+import { useDispatch } from 'react-redux'
 import { useState } from 'react';
+import { nanoid } from '@reduxjs/toolkit';
 
+import {confirmCompleteCard } from "redux/cards/cardsOperation";
+
+// style
 import s from './TaskForm.module.css'
-import { levelsStyles } from './inputStyles';
-import levels from '../../data/level'
+
+import { DeleteModal } from './DeleteModal/DeleteModal';
+import difficulties from '../../data/difficulty'
 import categories from '../../data/category'
 
+// import icons
+import { RiPencilFill } from "react-icons/ri";
+import { AiFillStar } from 'react-icons/ai';
+import { CgClose } from 'react-icons/cg';
+import { FaCheck } from "react-icons/fa6";
+
+// import image
+import completed from 'img/award.png'
 
 //component 
-export const Task = ({ sendTask, task}) => {
-  const [title, setTitle] = useState('');
-  const [difficulty, setDifficulty] = useState('');
-  const [date, setDate] = useState('___-__-__');
-  const [time, setTime] = useState('___:___');
-  const [category, setCategory] = useState('');
+export const Task = ({card}) => {
+  const [active, setActive] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [modalOpen, setModalOpen] = useState(null);
 
-  const handleChange = (e) => {
-  
-    if(e.currentTarget ===undefined){
-      switch ( e.name) {
-        case "difficulty":
-          setDifficulty(e.value)
-            break;
+  const dispatch = useDispatch();
+  const taskId = nanoid();
+  const modalContainer = document.getElementById(`${modalOpen}`);
 
-        case "category":
-         setCategory(e.value)
-        break;
-       
-      default:
-      break;
-      }
 
-      return
+  const confirmCard = (cardID) => {
+    if(cardID){
+      dispatch(confirmCompleteCard(cardID));
     }
+  }
   
-    if(e.currentTarget){
-      const { name, value } = e.currentTarget 
 
-      switch (name) {
-          case "title":
-            setTitle(value)
-          break;
-           
-          case "date":
-          const parts = value.split('T');
-          setDate(parts[0])
-          setTime(parts[1])
-          break;
-
-
-          default:
-          break;
+  const handleActive = () => {
+    if(active){
+      setActive(false);
+      return;
     }
-  }    
+    setActive(true);
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    sendTask(difficulty, title, date, category, time)   
-  }
-
-    const deleteTask= (id, e) => {
-      console.log(e.currentTarget)
-      // // dispatch(deleteCard(id));
+    const deleteTask= ( taskId) => {
+      setModalOpen(taskId);
+      setShowModal(true);
     }
-
 
     return (
-
       
-        <div className={s.task}>
-        <form action="" onSubmit={handleSubmit}>
-
-       <div className={s.task__top}>
-                <Select
-              className="basic-single"
-              classNamePrefix="select"
-              name="difficulty"
-              options={levels}
-              styles={levelsStyles}
-              onChange={handleChange}
-            />
-          <AiFillStar className={s.task__favIcon}/>
-        </div>   
-        
-
-        <input type="text" className={s.task__inputName} name="title" onChange={handleChange}  required/>
-
-      <div className={s.task__datePickerBox}>
-          {date?<p>{date} {time}</p>:<label htmlFor="date">Date:</label>}
-          <span className={s.task__datepicker_toggle}>
-          <span className={s.task__datepicker_toggle_button}></span>
-            <input name="date" type="datetime-local" className={s.task__datepicker_input} onChange={handleChange}  required/>
-          </span>
-        </div>
+        <div className={s.task} id={taskId}>
+        {card.status==="Complete"?
+        <div>
+          <p>Completed: 
+            <span>{card.title}</span>
+          </p>
+         <img src={completed} alt="award"/>
+        </div>:
+        <div>
+          <div className={s.task__top}>
   
-      
-      <Select
-              className="basic-single"
-              classNamePrefix="select"
-              name="category"
-              options={categories}
-              styles={levelsStyles}
-              onChange={handleChange}
-            />
-
-<div className={s.task__bottom} >
-  <CgClose  className={s.task__btnClose} onClick={deleteTask}/>
-  <button type='submit' className={s.task__btnSubmit}> START</button>
-</div>
-
-</form>
+          {
+                (() => {
+                  const matchedDifficulties = difficulties.find((difficulty) => difficulty.value === card.difficulty);
+                  if (matchedDifficulties) {
+                    return (
+                      <div key={nanoid()} className={s.task__difficultyBox}> 
+            <span className={s.task__difficultyPoint} style={{backgroundColor: matchedDifficulties.color}}></span>
+            <p className={s.task__difficulty} >{card.difficulty}</p> </div>
+                    );
+                  }
+                  return null;
+                })()
+          }
+                  
+            <AiFillStar className={s.task__favIcon}/>
+          </div>   
+          
+          <p className={s.task__title}> {card.title} </p>
+        
+          <div className={s.task__dateBox}>
+            <p className={s.task__date}>{card.date}</p>
+            <p className={s.task__date}>{card.time}</p>
+          </div>
+  
+            {
+            (() => {
+              const matchedCategory = categories.find((category) => category.value === card.category);
+              if (matchedCategory) {
+                return (
+                  <p key={nanoid()} className={s.task__category} style={{ backgroundColor: matchedCategory.color }}>
+                    {card.category}
+                  </p>
+                );
+              }
+              return null;
+            })()
+          }
+        
+        <div className={s.task__bottom}>
+          <RiPencilFill className={s.task__btnUpdate} onClick={handleActive}/>
+            <CgClose  className={s.task__btnClose} onClick={()=> deleteTask(taskId)}/>
+            <FaCheck className={s.task__btnCompete} onClick={()=> confirmCard(card._id)}/>
+        </div>
+    
+        {showModal && modalContainer && createPortal(<DeleteModal cardID={card._id} onClose={() => setShowModal(false)} />, modalContainer)}
+        </div>
+        }
+       
       </div>
     );
   };

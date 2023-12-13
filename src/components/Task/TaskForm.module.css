@@ -1,8 +1,7 @@
-
 .task{
+  position: relative;
 background-color: #fff;
 width: 224px;
-/* height: 208px; */
 padding: 20px;
 border-radius: 10px;
 box-shadow: 3px 4px 4px 0px #15395A08, -3px -4px 4px 0px #15395A08;
@@ -13,6 +12,39 @@ box-shadow: 3px 4px 4px 0px #15395A08, -3px -4px 4px 0px #15395A08;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.task__difficultyBox,
+.task__dateBox{
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.task__difficulty{
+font-size: 14px;
+font-weight: 400;
+line-height: 14px;
+letter-spacing: 0.02em;
+text-align: left;
+color: #B9C3C8;
+
+}
+
+.task__difficultyPoint{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.task__title{
+  margin-top: 49px;
+font-size: 18px;
+font-weight: 700;
+line-height: 16px;
+letter-spacing: 0em;
+text-align: center;
+
 }
 
 .task__inputName{
@@ -29,48 +61,93 @@ box-shadow: 3px 4px 4px 0px #15395A08, -3px -4px 4px 0px #15395A08;
     border-bottom: 2px solid #00D7FF;
 }
 
+.task__dateBox{
+justify-content: center;
+}
+
+.task__date{
+ margin-top: 12px;
+
+  font-size: 14px;
+font-weight: 400;
+line-height: 14px;
+letter-spacing: 0.02em;
+text-align: center;
+color: #828a8e;
+
+}
 
 .task__bottom{
     display: flex;
     justify-content: flex-end;
-    gap: 16px;
+    gap: 10px;
+}
+
+.task__category{
+  width: 88px;
+  padding: 8px 10px 8px 20px;
+  margin: 38px 0 0 -20px ;
+  border-radius: 0px 20px 20px 0px;
+
+  color: #282828;
+font-size: 14px;
+font-weight: 400;
+line-height: 11px;
+letter-spacing: 0.02em;
+text-align: left;
+}
+
+.task__btnUpdate,
+.task__btnCompete,
+.task__btnClose{
+  width: 25px;
+  height: 25px;
+  color: #00D7FF;
+  transition: 0.3s;
 }
 
 .task__btnClose{
-    width: 15px;
-    height: 15px;
-    color: #DB0837;
-
-    transition: 0.3s;
+  width: 28px;
+  height: 28px;
+  color: #DB0837;
 }
 
-
-.task__btnSubmit{
-    border: none;
-    background-color: #fff;
-    font-family: "HelveticaNeueCyr", sans-serif;
-font-size: 14px;
-font-weight: 400;
-line-height: 14px;
-letter-spacing: 0.02em;
-
-color: #00D7FF;
-transition: 0.3s;
+.task__btnCompete{
+  color: #24D40C;
 }
 
 .task__btnClose:hover,
-.task__btnSubmit:hover{
+.task__btnSubmit:hover,
+.task__btnUpdate:hover,
+.task__btnCompete:hover{
 cursor: pointer;
+}
+
+.task__btnSubmit:hover,
+.task__btnUpdate:hover{
+  color: #0198b3;
 }
 
 .task__btnClose:hover{
     color: #ab062a;
+}
 
-      }
+.task__btnCompete:hover{
+  color: #1ca00b;
+}
+ 
+.task__btnSubmit{
+    border: none;
+    background-color: #fff;
+    font-family: "HelveticaNeueCyr", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.02em;
+    color: #00D7FF;
+    transition: 0.3s;
+}
 
-.task__btnSubmit:hover{
-  color: #0198b3;
-    }
 
 
 .task__datePickerBox{

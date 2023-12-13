@@ -1,5 +1,6 @@
 import {  createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { fetchCard, deleteCard, addCard, editCard, confirmEditCard } from "./cardsOperation";
+import { fetchCard, deleteCard, addCard, editCard, confirmCompleteCard } from "./cardsOperation";
+import { logOut } from 'redux/auth/authOperation';
 
 const handlePending = (state) => {
     state.isLoading = true;
@@ -27,36 +28,43 @@ const cardSlice =  createSlice({
             state.isLoading = false;
         })
             
- 
         // ADD
       .addCase(addCard.fulfilled, (state, action) => {
-        state.entities.push(action.payload);
+        state.entities.cards.push(action.payload.createdCard);
         state.isLoading = false;
       })
 
 
         // DELETE
       .addCase(deleteCard.fulfilled, (state, action) => {
-          const index = state.entities.findIndex(
-        card => card.id === action.payload.id
-          );
-            state.entities.splice(index, 1);
+          const index = state.entities.cards.findIndex(card => card._id === action.meta.arg);
+          state.entities.cards.splice(index, 1);
           state.isLoading = false; 
       })
 
-
+      .addCase(logOut.fulfilled, (state) =>{
+      state.entities = [];
+      state.error = null;
+      state.isLoading = false;
+      })
       
         // PATCH
         .addCase(editCard.fulfilled, (state, action) => {
             const index = state.entities.findIndex(
                 card => card.id === action.payload.id
             );
+            state.entities.cards.splice(0, index, action.cards);
+
                 console.log(index)
             state.isLoading = false; 
         })
 
-         // PATCH CONFIRM
-         .addCase(confirmEditCard.fulfilled, (state, action) => {
+         // PATCH COMPETE
+         .addCase(confirmCompleteCard.fulfilled, (state, action) => {
+          const index = state.entities.cards.findIndex(card => card._id === action.meta.arg);
+          console.log(index)
+          state.entities.cards.splice(index, 1, action.payload.completedCard);
+          console.log(action.payload.completedCard)
             state.isLoading = false; 
         })
     
@@ -67,7 +75,7 @@ const cardSlice =  createSlice({
             addCard.pending,
             deleteCard.pending,
             editCard.pending,
-            confirmEditCard.pending,
+            confirmCompleteCard.pending,
     ), handlePending)
             
             
@@ -77,7 +85,7 @@ const cardSlice =  createSlice({
             addCard.rejected,
             deleteCard.rejected,
             editCard.rejected,
-            confirmEditCard.rejected,
+            confirmCompleteCard.rejected,
     ), handleRejected)
     } 
 })

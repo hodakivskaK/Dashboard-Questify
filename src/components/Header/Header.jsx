@@ -1,18 +1,19 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { IoMdLogOut } from "react-icons/io";
-import { logOut } from 'redux/auth/authOperation';
+import { NavLink } from 'react-router-dom'; 
 
+import { logOut } from 'redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector'
+
 import s from './Header.module.css'
+import { FaTrophy } from "react-icons/fa";
+import { IoMdLogOut } from "react-icons/io";
 
 export const Header = () => {
   const email = useSelector(authSelector.getUserEmail)
-
   const dispatch = useDispatch();
 
-
     return (
-      <div className={s.header}>
+      <header className={s.header}>
         
         <div className={s.header__container}>
         <span className={s.header__logo}>Questify</span>
@@ -22,13 +23,20 @@ export const Header = () => {
             {email}
        </div>
 
-       <div className={s.header__btnLogOutBox} onClick={() => dispatch(logOut())}>
-       <IoMdLogOut className={s.header__btnLogOut}/>
+      <div className={s.header__containerRight}>
+            
+            <NavLink to="/dashboard/complete" className={s.header__btnTaskCompleteBox}>
+              <FaTrophy className={s.header__btnTaskComplete}/>
+            </NavLink>
+            
+            <div className={s.header__btnLogOutBox} onClick={() => dispatch(logOut())}>
+            <IoMdLogOut className={s.header__btnLogOut}/>
 
+            </div>
        </div>
        </div>
  
-      </div>
+      </header>
     );
   };
   

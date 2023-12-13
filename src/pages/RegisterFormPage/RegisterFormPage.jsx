@@ -35,10 +35,6 @@ export default function RegisterFormPage(){
         return errors;
       }}
       onSubmit={(values, { setSubmitting }) => {
-        // setTimeout(() => {
-        //   alert(JSON.stringify(values, null, 2));
-        //   setSubmitting(false);
-        // }, 400);
         const form = values;
         dispatch(
           register({
@@ -84,8 +80,7 @@ export default function RegisterFormPage(){
            <label name="acceptedTerms" className={s.registerForm__termService}>
            <input type="checkbox"/>
   <span ></span>
-         {/* <input className={s.registerForm__termServiceCheckbox} type="checkbox" required />
-         I agree all statement in <span className={s.registerForm__termServiceLink}>Term Service </span> */}
+         
        </label>
           
         

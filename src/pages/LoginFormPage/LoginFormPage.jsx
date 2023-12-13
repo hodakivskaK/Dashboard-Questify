@@ -8,8 +8,6 @@ import s from './LoginFormPage.module.css'
 export default function LoginFormPage(){
   const dispatch = useDispatch();
 
-
-
  return <div className={s.loginForm__section}>
     <h1 className={s.loginForm__title}>Hello friend, go to your profile </h1>
     <h4 className={s.loginForm__subTitle}>your tasks are waiting for you </h4>

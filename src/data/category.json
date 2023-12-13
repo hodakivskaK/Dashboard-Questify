@@ -1,8 +1,8 @@
 [
-    { "value": "Stuff", "label": "Stuff", "name": "category" },
-    { "value": "Family", "label": "Family", "name": "category" },
-    { "value": "Health", "label": "Health", "name": "category" },
-    { "value": "Learning", "label": "Learning", "name": "category" },
-    { "value": "Leisure", "label": "Leisure", "name": "category" },
-    { "value": "Work", "label": "Work", "name": "category" }
+    { "value": "Stuff", "label": "Stuff", "name": "category","color": "#B9C3C8" },
+    { "value": "Family", "label": "Family", "name": "category","color": "#FFE6D3"  },
+    { "value": "Health", "label": "Health", "name": "category","color": "#CDF7FF"  },
+    { "value": "Learning", "label": "Learning", "name": "category","color": "#FFF6C0"  },
+    { "value": "Leisure", "label": "Leisure", "name": "category","color": "#F8D2FF"  },
+    { "value": "Work", "label": "Work", "name": "category","color": "#D3F6CE"  }
   ]

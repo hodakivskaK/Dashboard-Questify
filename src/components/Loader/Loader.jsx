@@ -1,8 +1,9 @@
-import Spinner from 'react-bootstrap/Spinner'
 import s from './Loader.module.css'
 
+import { BounceLoader } from 'react-spinners';
+
 export default function Loader() {
-    return (
-        <Spinner className={s.spinner} animation="grow" variant="dark" />
-      )
+  return (
+  <BounceLoader color="#00D7FF" className={s.spinner}/>
+  );
 }

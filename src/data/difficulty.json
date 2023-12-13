@@ -1,0 +1,5 @@
+[
+    { "value": "Easy", "label": "Easy", "name": "difficulty", "color": "#00D7FF" },
+    { "value": "Normal", "label": "Normal", "name": "difficulty", "color": "#24D40C" },
+    { "value": "Hard", "label": "Hard", "name": "difficulty", "color": "#DB0837" }
+  ]

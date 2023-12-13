@@ -26,16 +26,11 @@ quests and exciting challenges.</p>
     <form className={s.landing__form} onSubmit={handleSubmit}> 
         <label className={s.landing__label}>
         Choose your name to sign up or log in
-            <input type="text" className={s.landing__input} />
         </label>
 
         <button className={s.landing__Btn} type="submit" >go!</button>
-    </form>
-
- 
+    </form> 
 </div>
-
-
 </div>
     );
     

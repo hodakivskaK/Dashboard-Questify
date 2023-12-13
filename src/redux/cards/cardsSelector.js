@@ -1,11 +1,3 @@
 
-export const getCards = state => state.card.entities;
-
-
-
-
-const cardSelectors = {
-    getCards,
-}
-
-export default cardSelectors;
+export const getCards = state => state.cards.entities.cards;
+export const getIsLoading = state => state.cards.isLoading;

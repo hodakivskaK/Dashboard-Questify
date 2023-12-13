@@ -1,0 +1,80 @@
+.modal__background {
+    background-color: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    position: absolute;
+    border-radius: 10px;
+
+  }
+
+.modal__wrapper{
+    position: absolute;
+    top: 0;
+    left: 50%;
+     top: 50%;
+    left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.modal {
+    width: 163px;
+    padding: 40px;
+  height: auto;
+  background: white;
+  z-index: 10;
+  border-radius: 16px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+
+.modal__btnBox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 14px;
+}
+
+.modal__btnClose,
+.modal__btnDelete{
+font-size: 12px;
+font-weight: 700;
+line-height: 10px;
+letter-spacing: 0em;
+text-align: center;
+transition: 0.3s;
+
+  border: none;
+  color: #24D40C;
+  padding: 10px 11px;
+  display: inline-block;
+  background-color: transparent;
+}
+  
+.modal__btnDelete{
+    color: #DB0938;
+    border-left: 1px solid #B9C3C8;
+
+}
+
+
+.modal__btnClose:hover{
+    color: #1ca00b;
+    cursor: pointer;
+}
+
+.modal__btnDelete:hover{
+    color: #8d0825;
+    cursor: pointer;
+}
+
+.modal__title{
+font-size: 14px;
+font-weight: 550;
+line-height: 12px;
+letter-spacing: 0em;
+text-align: center;
+  text-align: center;
+}
+  
