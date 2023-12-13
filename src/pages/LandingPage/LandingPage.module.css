@@ -28,15 +28,9 @@ margin-bottom: 35px;
     display: flex;
 }
 
-.landing__label{
-    
-font-size: 24px;
-font-weight: 400;
-line-height: 45px;
-letter-spacing: 0.02em;
-
-color: #B9C3C8;
-
+.landing__boxRegister{
+    font-size: 18px;
+    margin-bottom: 25px;
 }
 
 .landing__input{
@@ -59,26 +53,60 @@ color: #B9C3C8;
 }
 
 .landing__Btn{
-    width: 52px;
-height: 52px;
-margin-left: 15px;
-background-color: #FF851C;
-border: none;
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
 
-border-radius: 50%;
-font-size: 24px;
-font-weight: 700;
+background-color: #00D7FF;
+padding: 0 5px ;
+font-size: 18px;
+border-radius: 12px;
+font-weight: 600;
 text-align: center;
-color: #FFFFFF;
-
-
-box-shadow: #df7518 0px 0px 15px;
+color: #fff;
+box-shadow: #007b91 0px 0px 15px;
 transition: 0.3s;
+text-decoration: none;
 }
 
 
 .landing__Btn:hover,
 .landing__Btn:focus{
 cursor: pointer;
-box-shadow: #FF851C 0px 0px 25px;
+box-shadow: #007b91 0px 0px 20px;
 }
+
+.landing__BtnIcon{
+color: #000000;
+height: 35px;
+width: 34px;
+margin-left: 5px;
+animation: 1s linear 0s infinite alternate sun-rise;
+color: #ffffff;
+;
+
+}
+
+.landing__linkRegister{
+    text-decoration: none;
+    color: #00D7FF;
+    transition: 0.3s;
+}
+
+.landing__linkRegister:hover,
+.landing__linkRegister:focus{
+    color: #007b91;
+}
+
+
+
+
+@keyframes sun-rise {
+    from {
+      transform: translateX(12px);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }

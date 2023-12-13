@@ -8,13 +8,18 @@
 }
 
 .registerForm__title{
-    margin: 0;
     font-size: 28px;
-    font-weight: 700;
-    line-height: 24px;
+    font-weight: 600;
+    line-height: 32px;
     letter-spacing: 0.02em;
-    text-align: center;    
+    text-align: center;
     color: #00D7FF;
+    
+}
+
+.registerForm__info{
+    font-family: 'Cantarell', sans-serif;
+    text-align: center;
     margin-bottom: 40px;
 }
 
@@ -58,6 +63,16 @@ margin-bottom: 15px;
 .registerForm__termServiceLink{
     color: #00D7FF;
 text-decoration:underline;
+}
+
+.registerForm__checkbox{
+margin-right: 7px;
+width: 14px;
+height: 14px;
+}
+
+.registerForm__checkboxLabel{
+  
 }
 
 

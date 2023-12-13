@@ -11,6 +11,7 @@ export default function RegisterFormPage(){
 
  return <div className={s.registerForm__section}>
     <h1 className={s.registerForm__title}>Create your account</h1>
+    <p className={s.registerForm__info}>Please don't use real e-mail, it's a pet project. </p>
     <Formik
       initialValues={{ email: '', password: '' }}
       validate={values => {
@@ -78,24 +79,29 @@ export default function RegisterFormPage(){
           />
           {errors.password && touched.password && errors.password}
            <label name="acceptedTerms" className={s.registerForm__termService}>
-           <input type="checkbox"/>
+          
+           <label htmlFor="checkbox" className={s.registerForm__checkboxLabel}>
+             <input type="checkbox" className={s.registerForm__checkbox}/>
+              By checking this box, you agree check my portfolio  :)
+           </label>
   <span ></span>
          
        </label>
           
         
           <button type="submit" disabled={isSubmitting} className={s.registerForm__submitBtn} >
-            Sigh up
+            Submit
           </button>
         </form>
       )}
     </Formik>
 
 
-    <p className={s.registerForm__account}>Have already an account?
-    <NavLink className={s.registerForm__accountLink} to={`/login`}>
-            Login here
-            </NavLink> </p>
+    <p className={s.registerForm__account}>Already have an account? 
+      <NavLink className={s.registerForm__accountLink} to={`/login`}>
+      Sign in
+      </NavLink> 
+    </p>
   </div>
 
 }

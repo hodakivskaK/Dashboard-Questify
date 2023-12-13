@@ -9,23 +9,17 @@
 
 .loginForm__title{ 
     font-size: 28px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 32px;
     letter-spacing: 0.02em;
-    text-align: center;    
+    text-align: center;
     color: #00D7FF;
-    margin: 0;
 }
 
 .loginForm__subTitle{
     font-family: 'Cantarell', sans-serif;
-        margin: 0;
     text-align: center;
     margin-bottom: 40px;
-    font-weight: 400;
-    color: #000000;
-
-
 }
 
 .loginForm{

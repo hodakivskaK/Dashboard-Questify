@@ -8,9 +8,10 @@ import s from './LoginFormPage.module.css'
 export default function LoginFormPage(){
   const dispatch = useDispatch();
 
+
  return <div className={s.loginForm__section}>
     <h1 className={s.loginForm__title}>Hello friend, go to your profile </h1>
-    <h4 className={s.loginForm__subTitle}>your tasks are waiting for you </h4>
+    <p className={s.loginForm__subTitle}>your tasks are waiting for you </p>
     <Formik
       initialValues={{ email: '', password: '' }}
       validate={values => {
@@ -77,16 +78,17 @@ export default function LoginFormPage(){
          
         
           <button type="submit" disabled={isSubmitting} className={s.loginForm__submitBtn}>
-            Log in
+            Submit
           </button>
         </form>
       )}
     </Formik>
 
 
-    <p className={s.loginForm__account}>Have not an account? 
+    <p className={s.loginForm__account}> 
+      Don’t have an account? 
             <NavLink className={s.loginForm__accountLink} to={`/registration`}>
-            Register here
+              Sign up 
             </NavLink>
             </p>
   </div>

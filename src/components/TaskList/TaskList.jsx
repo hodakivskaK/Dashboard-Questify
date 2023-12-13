@@ -18,7 +18,7 @@ export const TaskList = () => {
 
 
     useEffect(() => {
-      setCards(tasks)
+      setCards(tasks.cards)
         }, [dispatch, tasks])
 
     return (
