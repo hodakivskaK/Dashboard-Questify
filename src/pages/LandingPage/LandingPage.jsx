@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import s from './LandingPage.module.css'
 
 import { IoIosArrowRoundForward } from "react-icons/io";
-import { RxTarget } from "react-icons/rx";
 
 
 export default function LandingPage(){
