@@ -1,7 +1,4 @@
-
-
 export const levelsStyles = {
-
     singleValue: styles => ({
       ...styles,
       color: "black",
@@ -52,7 +49,6 @@ export const levelsStyles = {
       fontSize: '14px',
       backgroundColor: 'transparent',
       fontFamily: 'Manrope, sans-serif',
-      fontWeight: '400',
       cursor: 'pointer',
       lineHeight: '18px',
       transition: '200ms ease',
