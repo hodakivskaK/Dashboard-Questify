@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 import { Header } from "components/Header/Header";
 import { AddTaskBtn } from "components/AddTaskBtn/AddTaskBtn";
 import { TaskList } from "components/TaskList/TaskList";
-import { ModalContent } from "components/ModalWindowFormTask/ModalWindowFormTask";
+import { ModalContent } from "components/CreateCardModal/ModalWindowFormTask";
 import Loader from "components/Loader/Loader";
 
 import { fetchCard } from 'redux/cards/cardsOperation'
@@ -17,7 +17,6 @@ import { addCard } from "redux/cards/cardsOperation";
 // PAGE DashboardPage
 export default function DashboardPage(){
   const [showModal, setShowModal] = useState(false);
-
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
 
@@ -39,18 +38,18 @@ export default function DashboardPage(){
 
 
            // ADD NEW TASK
-   const sendTask = (difficulty, title, date, category, time) => {
-    dispatch(
-      addCard({
-          "title": title,
-            "difficulty": difficulty,
-            "category": category,
-            "date": date,
-            "time": time,
-            "type": "Task"
-          }
-    ))
-   };
+        const sendTask = (difficulty, title, date, category, time) => {
+          dispatch(
+            addCard({
+                "title": title,
+                  "difficulty": difficulty,
+                  "category": category,
+                  "date": date,
+                  "time": time,
+                  "type": "Task"
+                }
+          ))
+        };
 
 
     return (

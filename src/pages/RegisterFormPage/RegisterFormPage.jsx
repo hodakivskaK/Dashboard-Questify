@@ -1,13 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { Formik } from 'formik';
 
 import { useDispatch } from 'react-redux'
-import { register } from "../../redux/auth/authOperation";
+import { register } from "redux/auth/authOperation";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // toast styles
 
 import s from './RegisterFormPage.module.css'
 
 export default function RegisterFormPage(){
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+
 
  return <div className={s.registerForm__section}>
     <h1 className={s.registerForm__title}>Create your account</h1>
@@ -35,19 +40,25 @@ export default function RegisterFormPage(){
 
         return errors;
       }}
-      onSubmit={(values, { setSubmitting }) => {
-        const form = values;
-        dispatch(
-          register({
-              email: form.email,
-              password:  form.password,
-            })
-      );
 
-        setSubmitting(false);
-
+      onSubmit = { async (values, { resetForm }) => {
+        const user = {
+          email: values.email,
+          password: values.password,
+        };
+        if (user.email !== '' && user.password !== '') {
+          const res = await dispatch(register(user));
+          if (res.meta.requestStatus === "fulfilled") {
+            toast.success('Successful registration! Please confirm!');
+            navigate('/login');
+          }
+          if (res?.status !== 201) {
+            toast.error(res.payload);
+          }
+        }
       }}
     >
+
       {({
         values,
         errors,
@@ -84,13 +95,14 @@ export default function RegisterFormPage(){
              <input type="checkbox" className={s.registerForm__checkbox}/>
               By checking this box, you agree check my portfolio  :)
            </label>
-  <span ></span>
          
        </label>
           
-        
+       {/* <NavLink type="submit" disabled={isSubmitting}  className={s.registerForm__submitBtn}  to="/login">
+              Сontinue
+        </NavLink> */}
           <button type="submit" disabled={isSubmitting} className={s.registerForm__submitBtn} >
-            Submit
+            Сontinue
           </button>
         </form>
       )}

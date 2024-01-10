@@ -2,6 +2,8 @@ import { Formik } from 'formik';
 import { NavLink } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 import { login } from "../../redux/auth/authOperation";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; // toast styles
 
 import s from './LoginFormPage.module.css'
 
@@ -10,7 +12,7 @@ export default function LoginFormPage(){
 
 
  return <div className={s.loginForm__section}>
-    <h1 className={s.loginForm__title}>Hello friend, go to your profile </h1>
+    <h1 className={s.loginForm__title}>Hello friend, go to your profile</h1>
     <p className={s.loginForm__subTitle}>your tasks are waiting for you </p>
     <Formik
       initialValues={{ email: '', password: '' }}
@@ -32,18 +34,23 @@ export default function LoginFormPage(){
         return errors;
       }}
 
-      onSubmit={(values, { setSubmitting }) => {
-        const form = values;
-        dispatch(
-          login({
-              email: form.email,
-              password:  form.password,
-            })
-      );
-        setSubmitting(false);
-
+      onSubmit = { async (values, { resetForm }) => {
+        const user = {
+          email: values.email,
+          password: values.password,
+        };
+        if (user.email !== '' && user.password !== '') {
+          const res = await dispatch(login(user));
+          if (res.meta.requestStatus === "fulfilled") {
+            toast.success('Successful!');
+          }
+          if (res?.status !== 201) {
+            toast.error(res.payload);
+          }
+        }
       }}
     >
+      
       {({
         values,
         errors,

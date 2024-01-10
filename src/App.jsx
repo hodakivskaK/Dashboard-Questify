@@ -7,6 +7,7 @@ import { PrivateRoute } from './Routes/PrivateRoute';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
 // import { useAuth } from './hook/useAuth';
 
+
 import { Layout } from "./components/Layout";
 
 
@@ -14,12 +15,13 @@ const LandingPage = lazy(() => import('./pages/LandingPage/LandingPage'));
 const DashboardPage = lazy(() => import('./pages/DashboardPage/DashboardPage'));
 const RegisterFormPage = lazy(() => import('./pages/RegisterFormPage/RegisterFormPage'));
 const LoginFormPage = lazy(() => import('./pages/LoginFormPage/LoginFormPage'));
+const CompletedTaskPage = lazy(()=> import('./pages/CompletedTask/CompletedTask'))
 
 
 
 export const App = () => {
 //   const dispatch = useDispatch(); 
-//   const { isRefreshing } = useAuth();
+  // const { isRegistration } = useAuth();
 
 //   useEffect(() => {
 
@@ -38,9 +40,10 @@ export const App = () => {
         <Route
           path="/registration"
           element={
-            <RestrictedRoute redirectTo="/dashboard" component={<RegisterFormPage />} />
+            <RestrictedRoute redirectTo="/login" component={<RegisterFormPage />} />
           }
         />
+
         <Route
           path="/login"
           element={
@@ -48,13 +51,13 @@ export const App = () => {
           }
         />
         <Route
-          path="/dashboard"
+          path="/completed"
           element={
-            <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
+            <PrivateRoute redirectTo="/login" component={<CompletedTaskPage />} />
           }
         />
         <Route
-          path="dashboard/complete"
+          path="/dashboard"
           element={
             <PrivateRoute redirectTo="/login" component={<DashboardPage />} />
           }

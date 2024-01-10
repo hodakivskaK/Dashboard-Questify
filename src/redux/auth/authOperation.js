@@ -8,8 +8,6 @@ const setAuthHeader = token =>
 const clearAuthHeader = () =>
   (axios.defaults.headers.common.Authorization = '');
 
-
-
    // Register 
 export const register = createAsyncThunk(
   'auth/register',
@@ -22,7 +20,8 @@ export const register = createAsyncThunk(
 
       return response.data;
     } catch (e) {
-      return rejectWithValue(e.message);
+      console.log(e.response.data.message)
+      return rejectWithValue(e.response.data.message);
     }
   }
 );
@@ -38,7 +37,7 @@ export const login = createAsyncThunk(
 
       return response.data;
     } catch (e) {
-      return rejectWithValue(e.message);
+      return rejectWithValue(e.response.data.message);
     }
   }
 );

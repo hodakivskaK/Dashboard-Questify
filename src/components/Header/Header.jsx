@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux'
-import { NavLink, useNavigate } from 'react-router-dom'; 
+import { Link, useLocation } from 'react-router-dom'; 
 
 import { logOut } from 'redux/auth/authOperation';
 import authSelector from '../../redux/auth/authSelector'
@@ -7,12 +7,13 @@ import authSelector from '../../redux/auth/authSelector'
 import s from './Header.module.css'
 import { FaTrophy } from "react-icons/fa";
 import { IoMdLogOut } from "react-icons/io";
+import { PiTargetBold } from "react-icons/pi";
+
 
 export const Header = () => {
   const email = useSelector(authSelector.getUserEmail)
   const dispatch = useDispatch();
-  const nav = useNavigate;
-  console.log(nav);
+  const location = useLocation();
   
     return (
       <header className={s.header}>
@@ -27,9 +28,17 @@ export const Header = () => {
 
       <div className={s.header__containerRight}>
             
-            <NavLink to="/dashboard/complete" className={s.header__btnTaskCompleteBox}>
-              <FaTrophy className={s.header__btnTaskComplete}/>
-            </NavLink>
+            {location.pathname==="/completed"?
+            <Link to="/dashboard" className={s.header__btnTaskCompleteBox}>
+            <PiTargetBold   className={s.header__btnTaskComplete}/>
+          </Link>
+          :
+          <Link to="/completed" className={s.header__btnTaskCompleteBox}>
+            <FaTrophy className={s.header__btnTaskComplete}/>
+          </Link>}
+          
+          
+
             <div className={s.header__btnLogOutBox} onClick={() => dispatch(logOut())}>
             <IoMdLogOut className={s.header__btnLogOut}/>
 

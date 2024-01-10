@@ -13,7 +13,7 @@ export const ModalContent = ({ onClose, sendTask }) => {
       <CgClose  className={s.modal__btnClose} onClick={onClose}/>
         
        <h2 className={s.modal__title}>Create New Quest</h2>
-      <CardForm sendTask={sendTask} onClose={onClose}/>
+      <CardForm sendTask={sendTask} onClose={onClose} />
       </div>
       </div>
 </>

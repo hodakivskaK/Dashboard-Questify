@@ -1,0 +1,25 @@
+.completedTask_card{
+}
+
+.completedTask_textBox{
+    display: flex;
+}
+
+.completedTask_CompletedTitle{
+    margin-right: 8px;
+}
+
+.completedTask_title{
+    color: #00D7FF;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+text-decoration-line: underline;
+}
+
+.completedTask_img{
+    display: block;
+    margin: 0 auto;
+    width: 200px
+}

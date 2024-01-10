@@ -6,9 +6,10 @@ const handlePending = (state) => {
     state.isLoading = true;
 }
 
-const handleRejected = (state, {payload}) => {
+const handleRejected = (state, action) => {
+    console.log(action.payload)
     state.isLoading = false;
-    state.entities = payload;
+    state.error = action.payload;
 }
 
 
@@ -22,20 +23,20 @@ const cardSlice =  createSlice({
     
     extraReducers: builder => { 
         builder
-        // FETCH
+        // GET CARD
         .addCase(fetchCard.fulfilled, (state, { payload: cards }) => {
             state.entities = cards;
             state.isLoading = false;
         })
             
-        // ADD
+        // ADD NEW CARD
       .addCase(addCard.fulfilled, (state, action) => {
         state.entities.cards.push(action.payload.createdCard);
         state.isLoading = false;
       })
 
 
-        // DELETE
+        // DELETE CARD
       .addCase(deleteCard.fulfilled, (state, action) => {
           const index = state.entities.cards.findIndex(card => card._id === action.meta.arg);
           state.entities.cards.splice(index, 1);
@@ -48,24 +49,18 @@ const cardSlice =  createSlice({
       state.isLoading = false;
       })
       
-        // PATCH
-        .addCase(editCard.fulfilled, (state, action) => {
-            const index = state.entities.findIndex(
-                card => card.id === action.payload.id
-            );
-            state.entities.cards.splice(0, index, action.cards);
-
-                console.log(index)
+        // PATCH EDIT
+        .addCase(editCard.fulfilled, (state, {payload}) => {
+            const index = state.entities.cards.findIndex(card => card._id === payload.editedCard._id);
+            state.entities.cards.splice(index, 1, payload.editedCard);
             state.isLoading = false; 
         })
 
          // PATCH COMPETE
          .addCase(confirmCompleteCard.fulfilled, (state, action) => {
-          const index = state.entities.cards.findIndex(card => card._id === action.meta.arg);
-          console.log(index)
-          state.entities.cards.splice(index, 1, action.payload.completedCard);
-          console.log(action.payload.completedCard)
-            state.isLoading = false; 
+        const index = state.entities.cards.findIndex(card => card._id === action.meta.arg);
+        state.entities.cards.splice(index, 1, action.payload.completedCard);
+        state.isLoading = false; 
         })
     
             

@@ -1,0 +1,142 @@
+
+
+.modal__wrapper{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.modal {
+    width: 224px;
+    height: 200px;
+    padding: 20px;
+    background: #15395A;
+    z-index: 10;
+    border-radius: 16px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  }
+
+.editForm__inputBox{
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.editForm__title{
+    margin-bottom: 5px;
+    color: #B9C3C8;
+text-align: center;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.24px;
+}
+
+.editForm__inputName{
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-weight: 16px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #fff;
+}
+
+.editForm__datePickerBox{
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0 10px 0;
+}
+
+.editForm__datepickerEmpty{
+    font-size: 14px;
+    color: #fff;
+}
+
+.editForm__datepicker_toggle{
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.editForm__datepicker_toggle_button{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../img/calendar_white.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.editForm__datepicker_input{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    box-sizing: border-box;
+
+}
+
+.editForm__datepicker_input::-webkit-calendar-picker-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+  }
+
+.editForm__bottom{
+display: flex;
+gap: 7px;
+align-items: center;
+justify-content: flex-end;
+}
+
+.editForm__btnClose{
+    width: 28px;
+  height: 28px;
+  color: #DB0837;
+
+}
+
+.editForm__btnCompete{
+    color: #24D40C;
+    border: none;
+    background-color: transparent;
+}
+
+.editForm__btnCompeteIcon{
+    width: 25px;
+    height: 25px;
+}
+
+.editForm__btnCompete:hover,
+.editForm__btnCompete:focus{
+    color: #1ca00b;
+}
+
+.editForm__btnClose:hover,
+.editForm__btnClose:focus{
+    color: #ab062a;
+}
+
+.editForm__btnClose:hover,
+.editForm__btnCompete:hover,
+.editForm__btnClose:focus,
+.editForm__btnCompete:focus{
+    cursor: pointer;
+}

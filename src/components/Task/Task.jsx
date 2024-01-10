@@ -6,9 +6,11 @@ import { nanoid } from '@reduxjs/toolkit';
 import {confirmCompleteCard } from "redux/cards/cardsOperation";
 
 // style
-import s from './TaskForm.module.css'
+import s from './Task.module.css'
 
 import { DeleteModal } from './DeleteModal/DeleteModal';
+import { EditCard } from './EditCard/EditCard';
+import { CompletedTask } from './CompletedTask/CompletedTask';
 import difficulties from '../../data/difficulty'
 import categories from '../../data/category'
 
@@ -18,13 +20,12 @@ import { AiFillStar } from 'react-icons/ai';
 import { CgClose } from 'react-icons/cg';
 import { FaCheck } from "react-icons/fa6";
 
-// import image
-import completed from 'img/award.png'
 
-//component 
+
+//COMPONENT
 export const Task = ({card}) => {
-  const [active, setActive] = useState(true);
-  const [showModal, setShowModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showEditModal, setShowEditModal] = useState(false);
   const [modalOpen, setModalOpen] = useState(null);
 
   const dispatch = useDispatch();
@@ -39,29 +40,21 @@ export const Task = ({card}) => {
   }
   
 
-  const handleActive = () => {
-    if(active){
-      setActive(false);
-      return;
-    }
-    setActive(true);
+  const editTaskModal = (taskId) => {
+      setModalOpen(taskId);
+      setShowEditModal(true);
   }
 
-    const deleteTask= ( taskId) => {
+  const deleteTaskModal= ( taskId) => {
       setModalOpen(taskId);
-      setShowModal(true);
+      setShowDeleteModal(true);
     }
 
     return (
       
         <div className={s.task} id={taskId}>
         {card.status==="Complete"?
-        <div>
-          <p>Completed: 
-            <span>{card.title}</span>
-          </p>
-         <img src={completed} alt="award"/>
-        </div>:
+       <CompletedTask title={card.title}/>:
         <div>
           <div className={s.task__top}>
   
@@ -104,12 +97,13 @@ export const Task = ({card}) => {
           }
         
         <div className={s.task__bottom}>
-          <RiPencilFill className={s.task__btnUpdate} onClick={handleActive}/>
-            <CgClose  className={s.task__btnClose} onClick={()=> deleteTask(taskId)}/>
+            <RiPencilFill className={s.task__btnUpdate} onClick={()=>editTaskModal(taskId)}/>
+            <CgClose  className={s.task__btnClose} onClick={()=> deleteTaskModal(taskId)}/>
             <FaCheck className={s.task__btnCompete} onClick={()=> confirmCard(card._id)}/>
         </div>
     
-        {showModal && modalContainer && createPortal(<DeleteModal cardID={card._id} onClose={() => setShowModal(false)} />, modalContainer)}
+        {showDeleteModal && modalContainer && createPortal(<DeleteModal cardID={card._id} onClose={() => setShowDeleteModal(false)} />, modalContainer)}
+        {showEditModal && modalContainer && createPortal(<EditCard cardID={card._id} onClose={() => setShowEditModal(false)} />, modalContainer)}
         </div>
         }
        

@@ -1,10 +1,12 @@
 
-.cardForm__top{
+.cardForm__difficultyBox{
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 30px;
-}
+    padding: 7px 40px 5px 40px;
+    margin: 15px -40px 0 -40px;
+  }
 
 .cardForm__titleCategory{
     font-weight: 600;
@@ -33,6 +35,7 @@
 }
 
 .cardForm__categoryBox{
+  position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -41,12 +44,19 @@
     background-color: #00D7FF;
 }
 
+.cardForm__require{
+  position: absolute;
+  color: #ff9100;
+  right: 10px;
+  top: 0;
+}
 
 .cardForm__bottom{
     margin-top: 20px;
     display: flex;
     justify-content: center;
     gap: 16px;
+  
 }
 
 .cardForm__btnSubmit{
@@ -60,6 +70,16 @@ letter-spacing: 0.02em;
 
 color: #00D7FF;
 transition: 0.3s;
+}
+
+
+.cardForm__btnSubmit:disabled{
+  color: gray;
+}
+
+.cardForm__btnSubmit:disabled:hover,
+.cardForm__btnSubmit:disabled:focus{
+  color: gray;
 }
 
 .cardForm__btnClose:hover,
@@ -103,16 +123,6 @@ cursor: pointer;
    
   }
 
-  .cardForm__timepicker_toggle_button {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-image: none;
-    background-repeat: no-repeat;
-   
-  }
 
   .cardForm__datepicker_input {
     position: absolute;
@@ -134,3 +144,5 @@ cursor: pointer;
     padding: 0;
     cursor: pointer;
   }
+
+ 

@@ -48,25 +48,23 @@ export const addCard = createAsyncThunk(
 
 // PATCH Card
 export const editCard = createAsyncThunk(
-    'card/editCard',
-    async (card, thunkAPI) => {
-      try {
-        const response = await axios.patch("/card", card );
-        return response.data;
-       
-      } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
-      }
+  'card/editCard',
+  async ({ id, card }, thunkAPI) => {
+    try {
+      const response = await axios.patch(`/card/${id}`, card);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
-  );
-
+  }
+);
 
   // PATCH COMPLETE  Card
 export const confirmCompleteCard = createAsyncThunk(
     'card/confirmCompleteCard',
     async (id, thunkAPI) => {
       try {
-        const response = await axios.patch(`/card/complete/${id}` );
+        const response = await axios.patch(`/card/complete/${id}`);
         return response.data;
        
       } catch (error) {
