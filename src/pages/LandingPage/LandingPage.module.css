@@ -1,6 +1,37 @@
+ .landing__page{
+    background: url("../../img/LangingPage/backgroundLanging1_2x.png") 
+    repeat 0 0;
+    animation: 14s linear infinite running bg-scrolling;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    background-size: 75%;
+    background-repeat:no-repeat;
+    background-position: 750px 450px;
+    
+}
 .landing__section{
- margin-top: 204px;
- margin-left: 229px;
+height: 100vh;
+ padding-top: 204px;
+ padding-left: 229px;
+ backdrop-filter: blur(0.7px);
+ -webkit-backdrop-filter: blur(0.7px);
+}
+
+.landing__img{
+    position: absolute;
+    width: 700px;
+    top: -500px;
+    right: 0;
+    z-index: -10;
+}
+
+.landing__imgSecond{
+    position: absolute;
+    width: 700px;
+    top: -123px;
+    right: -107px;
+    z-index: -10;
 }
 
 .landing__title{
@@ -66,7 +97,7 @@ border-radius: 12px;
 font-weight: 600;
 text-align: center;
 color: #fff;
-box-shadow: #007b91 0px 0px 15px;
+box-shadow: #009ebb 0px 0px 5px;
 transition: 0.3s;
 text-decoration: none;
 }
@@ -75,7 +106,7 @@ text-decoration: none;
 .landing__Btn:hover,
 .landing__Btn:focus{
 cursor: pointer;
-box-shadow: #007b91 0px 0px 20px;
+box-shadow: #009ebb 0px 0px 10px;
 }
 
 .landing__BtnIcon{
@@ -83,7 +114,7 @@ color: #000000;
 height: 35px;
 width: 34px;
 margin-left: 5px;
-animation: 1s linear 0s infinite alternate sun-rise;
+animation: 1s linear 0s infinite alternate moving-arrow;
 color: #ffffff;
 ;
 
@@ -103,7 +134,7 @@ color: #ffffff;
 
 
 
-@keyframes sun-rise {
+@keyframes moving-arrow {
     from {
       transform: translateX(12px);
     }
@@ -111,3 +142,30 @@ color: #ffffff;
       transform: translateX(0);
     }
   }
+
+
+  
+ @-webkit-keyframes bg-scrolling {
+    0% {
+     background-position: 550px 0;
+     
+   }
+ } 
+  @-moz-keyframes bg-scrolling {
+     0% {
+     background-position: 550px 0;
+     
+   }
+ }
+ @-o-keyframes bg-scrolling {
+     0% {
+     background-position: 550px 0;
+     
+   }
+ } 
+ @keyframes bg-scrolling {
+   0% {
+     background-position: 550px 0;
+     
+   }
+ }

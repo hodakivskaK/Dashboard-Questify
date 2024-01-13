@@ -6,6 +6,7 @@ import { register } from "redux/auth/authOperation";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'; // toast styles
 
+
 import s from './RegisterFormPage.module.css'
 
 export default function RegisterFormPage(){
