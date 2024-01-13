@@ -15,7 +15,8 @@ export default function RegisterFormPage(){
 
 
 
- return <div className={s.registerForm__section}>
+ return <div className={s.registerForm__page}> 
+      <div className={s.registerForm__section}>
     <h1 className={s.registerForm__title}>Create your account</h1>
     <p className={s.registerForm__info}>Please don't use real e-mail, it's a pet project. </p>
     <Formik
@@ -69,7 +70,7 @@ export default function RegisterFormPage(){
         handleSubmit,
         isSubmitting,
       }) => (
-        <form onSubmit={handleSubmit} className={s.registerForm}>
+        <form onSubmit={handleSubmit} className={s.registerForm} autocomplete="off">
           <label htmlFor="email" className={s.registerForm__label}>Email Address</label>
           <input
             type="email"
@@ -78,6 +79,7 @@ export default function RegisterFormPage(){
             onBlur={handleBlur}
             value={values.email}
             className={s.registerForm__input}
+            autoComplete="EMAIL"
           />
           {errors.email && touched.email && errors.email}
           <label htmlFor="password" className={s.registerForm__label}>Password</label>
@@ -116,6 +118,6 @@ export default function RegisterFormPage(){
       </NavLink> 
     </p>
   </div>
-
+  </div>
 }
 

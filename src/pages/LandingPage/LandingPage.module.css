@@ -1,4 +1,5 @@
  .landing__page{
+  height: 100vh;
     background: url("../../img/LangingPage/backgroundLanging1_2x.png") 
     repeat 0 0;
     animation: 14s linear infinite running bg-scrolling;
@@ -6,16 +7,14 @@
     -moz-animation-timing-function: linear;
     -o-animation-timing-function: linear;
     background-size: 75%;
-    background-repeat:no-repeat;
+    background-repeat: repeat-y;
     background-position: 750px 450px;
     
 }
 .landing__section{
-height: 100vh;
+
  padding-top: 204px;
  padding-left: 229px;
- backdrop-filter: blur(0.7px);
- -webkit-backdrop-filter: blur(0.7px);
 }
 
 .landing__img{
@@ -133,7 +132,7 @@ color: #ffffff;
 
 
 
-
+/* ANIMATION FOR ARROW IN BOTTOM */
 @keyframes moving-arrow {
     from {
       transform: translateX(12px);
@@ -144,7 +143,7 @@ color: #ffffff;
   }
 
 
-  
+  /* ANIMATION FOR BACKGROUND */
  @-webkit-keyframes bg-scrolling {
     0% {
      background-position: 550px 0;
@@ -164,8 +163,12 @@ color: #ffffff;
    }
  } 
  @keyframes bg-scrolling {
-   0% {
-     background-position: 550px 0;
-     
-   }
+  from {
+   background-position: 550px 0px;
+  }
+
+  to {
+  
+    background-position: 550px 1100px;
+  }
  }

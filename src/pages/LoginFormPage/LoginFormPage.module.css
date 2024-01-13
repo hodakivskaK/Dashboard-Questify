@@ -1,10 +1,27 @@
+.loginForm__page{
+    height: 100vh; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url("../../img/LangingPage/Group@3x.png") 
+    repeat 0 0;
+    background-position: 0;
+
+    animation: 30s ease infinite running bg-moving;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-timing-function: linear;
+    -o-animation-timing-function: linear;
+    background-size: cover; 
+}
+
 .loginForm__section{
-    width: 600px;
     margin: 0 auto;
-    margin-top: 150px;
+    width: 600px;
     border: #00000000 1px solid;
     box-shadow: #9e9e9e 0px 0px 25px;
     padding: 30px 20px;
+    background-color: #ffffff;
 }
 
 .loginForm__title{ 
@@ -38,7 +55,8 @@
 }
 
 .loginForm__input{
-display: block;
+    padding: 10px 0;
+    display: block;
 margin-bottom: 15px;
   background-color: transparent;
   height: 100%;
@@ -95,3 +113,15 @@ box-shadow: #e0791f 0px 0px 10px;
 .loginForm__accountLink{
     margin-left: 5px;
 }
+
+
+@keyframes bg-moving {
+    from {
+     background-position: 0 550px;
+    }
+  
+    to {
+    
+      background-position: 550px 550px;
+    }
+   }

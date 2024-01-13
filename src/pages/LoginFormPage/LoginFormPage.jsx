@@ -11,7 +11,8 @@ export default function LoginFormPage(){
   const dispatch = useDispatch();
 
 
- return <div className={s.loginForm__section}>
+ return <div className={s.loginForm__page}>
+    <div className={s.loginForm__section}>
     <h1 className={s.loginForm__title}>Hello friend, go to your profile</h1>
     <p className={s.loginForm__subTitle}>your tasks are waiting for you </p>
     <Formik
@@ -99,6 +100,6 @@ export default function LoginFormPage(){
             </NavLink>
             </p>
   </div>
-
+  </div>
 }
 
