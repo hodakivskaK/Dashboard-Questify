@@ -70,7 +70,7 @@ export default function RegisterFormPage(){
         handleSubmit,
         isSubmitting,
       }) => (
-        <form onSubmit={handleSubmit} className={s.registerForm} autocomplete="off">
+        <form onSubmit={handleSubmit} className={s.registerForm} autoComplete="off">
           <label htmlFor="email" className={s.registerForm__label}>Email Address</label>
           <input
             type="email"
@@ -79,7 +79,7 @@ export default function RegisterFormPage(){
             onBlur={handleBlur}
             value={values.email}
             className={s.registerForm__input}
-            autoComplete="EMAIL"
+           
           />
           {errors.email && touched.email && errors.email}
           <label htmlFor="password" className={s.registerForm__label}>Password</label>
@@ -100,10 +100,7 @@ export default function RegisterFormPage(){
            </label>
          
        </label>
-          
-       {/* <NavLink type="submit" disabled={isSubmitting}  className={s.registerForm__submitBtn}  to="/login">
-              Сontinue
-        </NavLink> */}
+    
           <button type="submit" disabled={isSubmitting} className={s.registerForm__submitBtn} >
             Сontinue
           </button>

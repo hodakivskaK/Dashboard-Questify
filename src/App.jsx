@@ -1,11 +1,8 @@
 import { Route, Routes  } from "react-router-dom";
-// import { useDispatch } from "react-redux";
 import { lazy  } from 'react'
-// import { refreshUser } from './redux/auth/authOperation'
 
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
-// import { useAuth } from './hook/useAuth';
 
 
 import { Layout } from "./components/Layout";
@@ -20,15 +17,6 @@ const CompletedTaskPage = lazy(()=> import('./pages/CompletedTask/CompletedTask'
 
 
 export const App = () => {
-//   const dispatch = useDispatch(); 
-  // const { isRegistration } = useAuth();
-
-//   useEffect(() => {
-
-//     dispatch(refreshUser())
-  
-// }, [dispatch])
-
 
   return (false ? (
     <b>...</b>

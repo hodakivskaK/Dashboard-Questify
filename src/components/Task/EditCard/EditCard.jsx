@@ -36,7 +36,6 @@ export const EditCard = ({cardID, onClose}) => {
               },
             })
           );
-          // onClose();
         }
       
         // CHANGE FORM
@@ -84,7 +83,7 @@ export const EditCard = ({cardID, onClose}) => {
           
         <div className={s.modal__wrapper}>
         <div className={s.modal}>
-        <form action="" onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
       
       <div className={s.cardForm__top}>
        <Select
@@ -92,7 +91,6 @@ export const EditCard = ({cardID, onClose}) => {
        name="difficulty"
        options={difficulties}
        styles={levelsStyles}
-       defaultValue="ввввв"
        onChange={handleChange}
        required
       />

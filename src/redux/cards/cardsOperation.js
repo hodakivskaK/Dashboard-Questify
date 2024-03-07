@@ -34,7 +34,6 @@ export const addCard = createAsyncThunk(
   'card/addCard',
   async (card, thunkAPI) => {
     try {
-      console.log(card)
       const response = await axios.post("/card", card );
       return response.data;
      

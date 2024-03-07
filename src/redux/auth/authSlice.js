@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
-import { register, login, logOut, refreshUser } from "./authOperation";
+import { register, login, logOut } from "./authOperation";
 
 const handlePending = (state) => {
     state.isLoading = true;
@@ -48,33 +48,17 @@ const authSlice = createSlice({
                 state.accessToken = null;
                 state.isLogin = false;
             })
-        
-            // RefreshUser
-            .addCase(refreshUser.pending, (state) => {
-                state.isRefreshing = true;
-            })
-            .addCase(refreshUser.fulfilled, (state, action) => {
-                console.log(action.payload)
-                state.sid = action.payload.newSid;
-                state.refreshToken = action.payload.newRefreshToken;
-                state.accessToken = action.payload.newRefreshToken;
-                state.isLogin = true;
-                state.isRefreshing = false;
-            })
-
-
             .addMatcher(isAnyOf(
                 register.pending,
                 login.pending,
                 logOut.pending,
-                refreshUser.pending,
+              
               ), handlePending)
 
             .addMatcher(isAnyOf(
                 register.rejected,
                 login.rejected,
                 logOut.rejected,
-                refreshUser.rejected,
         ), handleRejected)
     }
 })

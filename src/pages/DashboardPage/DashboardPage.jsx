@@ -6,7 +6,7 @@ import { createPortal } from 'react-dom';
 import { Header } from "components/Header/Header";
 import { AddTaskBtn } from "components/AddTaskBtn/AddTaskBtn";
 import { TaskList } from "components/TaskList/TaskList";
-import { ModalContent } from "components/CreateCardModal/ModalWindowFormTask";
+import { NewTaskModal } from "components/CreateCardModal/NewTaskModal";
 import Loader from "components/Loader/Loader";
 
 import { fetchCard } from 'redux/cards/cardsOperation'
@@ -14,25 +14,26 @@ import { getIsLoading } from "redux/cards/cardsSelector";
 import { addCard } from "redux/cards/cardsOperation";
 
 
+
 // PAGE DashboardPage
 export default function DashboardPage(){
-  const [showModal, setShowModal] = useState(false);
+  const [showModalNewTask, setShowModalNewTask] = useState(false);
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
-
+  
   useEffect(() => {
     dispatch(fetchCard())
       }, [dispatch])
 
 
       const openModal = () => {
-        setShowModal(true)
+        setShowModalNewTask(true)
         document.body.style.overflow = 'hidden'; 
       
       }
 
       const closeModal = () => {
-        setShowModal(false)
+        setShowModalNewTask(false)
         document.body.style.overflow = '';
       }
 
@@ -52,6 +53,7 @@ export default function DashboardPage(){
         };
 
 
+    
     return (
       <div >
     <Header/>
@@ -59,8 +61,8 @@ export default function DashboardPage(){
 
       <AddTaskBtn onClick={openModal}/>
 
-      {showModal && createPortal(
-        <ModalContent onClose={closeModal} sendTask={sendTask}/>,
+      {showModalNewTask && createPortal(
+        <NewTaskModal isOpen={showModalNewTask} onClose={closeModal} sendTask={sendTask}/>,
         document.body
       )}
   </div>

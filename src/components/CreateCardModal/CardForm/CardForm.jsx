@@ -69,7 +69,7 @@ export const CardForm = ({ sendTask, onClose }) => {
   
   
     return (
-      <>
+     
    
     <form action="" onSubmit={handleSubmit}>
   
@@ -117,7 +117,5 @@ export const CardForm = ({ sendTask, onClose }) => {
    <button disabled={!isValid} type='submit' className={s.cardForm__btnSubmit}> START</button>
   </div>
         </form>
-    
-  </>
     );
   }
